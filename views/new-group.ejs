@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crea Nuovo Gruppo - ClashMind</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk2QbTU5pH23A8bVh2kIrw4FTv0C1W4gXg2IHuCK9zs4V/1N3D9O6U4C6Fe1/RSJpt72PYtmJCPItTJEBG9P0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/custom.css">
+</head>
+<body class="bg-gray-900 text-white font-inter fade-in">
+  <header class="bg-blue-600 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <h1 class="text-2xl font-bold"><i class="fa-solid fa-layer-group mr-2"></i>Crea Nuovo Gruppo</h1>
+      <a href="/" class="hover:text-blue-200 transition">
+        <i class="fa-solid fa-arrow-left"></i> Torna alla Home
+      </a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-8">
+    <% if (error) { %>
+      <div class="bg-red-600 text-center py-2 rounded mb-6">
+        <%= error %>
+      </div>
+    <% } %>
+    <form method="post" action="/new-group" class="max-w-lg mx-auto space-y-6">
+      <div>
+        <label class="block text-lg font-medium mb-1" for="name">Nome del gruppo</label>
+        <input type="text" name="name" required class="w-full px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label class="block text-lg font-medium mb-1" for="description">Descrizione</label>
+        <textarea name="description" rows="4" class="w-full px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+      <button type="submit" class="w-full py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+        Crea Gruppo <i class="fa-solid fa-check ml-2"></i>
+      </button>
+    </form>
+  </main>
+</body>
+</html>

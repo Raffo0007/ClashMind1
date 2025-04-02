@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClashMind - Home</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk2QbTU5pH23A8bVh2kIrw4FTv0C1W4gXg2IHuCK9zs4V/1N3D9O6U4C6Fe1/RSJpt72PYtmJCPItTJEBG9P0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/custom.css">
+</head>
+<body class="bg-gray-900 text-white font-inter fade-in">
+  <header class="bg-blue-600 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="flex items-center">
+        <!-- Logo: metti il file logo.png nella cartella assets -->
+        <img src="/logo.png" alt="ClashMind Logo" class="h-10 mr-3">
+        <h1 class="text-2xl font-bold">ClashMind</h1>
+      </div>
+      <nav class="space-x-4 text-lg">
+        <a href="/signin" class="hover:text-blue-200 transition">Login</a>
+        <a href="/signup" class="hover:text-blue-200 transition">Registrazione</a>
+        <a href="/new-group" class="hover:text-blue-200 transition">Crea Gruppo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-8">
+    <div class="mb-6">
+      <h2 class="text-3xl font-semibold mb-4">Gruppi</h2>
+      <form method="get" action="/" class="flex">
+        <input type="text" name="search" placeholder="Cerca gruppi..." class="w-full px-4 py-2 rounded-l bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit" class="px-4 py-2 bg-blue-600 rounded-r hover:bg-blue-700 transition">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% groups.forEach(group => { %>
+        <a href="/group/<%= group.id %>" class="block p-6 bg-gray-800 rounded-lg shadow hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold mb-2"><%= group.name %></h3>
+          <p class="text-gray-300"><%= group.description %></p>
+        </a>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>
+        <img src="/logo.svg" alt="ClashMind Logo" class="h-10 mr-3">
+
+

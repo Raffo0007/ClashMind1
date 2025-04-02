@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= mode === 'signup' ? 'Registrazione' : 'Login' %> - ClashMind</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk2QbTU5pH23A8bVh2kIrw4FTv0C1W4gXg2IHuCK9zs4V/1N3D9O6U4C6Fe1/RSJpt72PYtmJCPItTJEBG9P0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/custom.css">
+</head>
+<body class="bg-gray-900 text-white font-inter fade-in">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold mb-6 text-center">
+        <i class="fa-solid <%= mode === 'signup' ? 'fa-user-plus' : 'fa-sign-in-alt' %> mr-2"></i>
+        <%= mode === 'signup' ? 'Registrazione' : 'Login' %>
+      </h1>
+      <% if (error) { %>
+        <div class="bg-red-600 text-center py-2 rounded mb-4">
+          <%= error %>
+        </div>
+      <% } %>
+      <form method="post" action="/<%= mode %>">
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-1" for="email">Email</label>
+          <input type="email" name="email" required class="w-full px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-6">
+          <label class="block text-sm font-medium mb-1" for="password">Password</label>
+          <input type="password" name="password" required class="w-full px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <button type="submit" class="w-full py-2 bg-blue-600 rounded hover:bg-blue-700 transition duration-300">
+          <%= mode === 'signup' ? 'Registrati' : 'Accedi' %>
+        </button>
+      </form>
+      <div class="mt-4 text-center">
+        <% if (mode === 'signup') { %>
+          <span>Hai già un account? <a class="text-blue-400 hover:underline" href="/signin">Accedi</a></span>
+        <% } else { %>
+          <span>Non hai un account? <a class="text-blue-400 hover:underline" href="/signup">Registrati</a></span>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
